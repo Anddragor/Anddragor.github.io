@@ -8,7 +8,7 @@ body {
 /* Стили для дерева */
 .tree {
     position: absolute;  /* Устанавливаем абсолютное позиционирование */
-    top: 50%;            /* Центрируем по вертикали */
+    top: 53%;            /* Центрируем по вертикали */
     left: 50%;           /* Центрируем по горизонтали */
     transform: translate(-50%, -50%);  /* Корректируем положение, чтобы точно центрировать */
     display: flex;
@@ -178,4 +178,21 @@ body.modal-open {
     background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный черный цвет */
     z-index: 9; /* Находится под центральным изображением */
     display: none; /* Скрыто по умолчанию */
+}
+
+#greeting-text {
+    position: absolute;
+    top: 4%;  /* Применяем переменную */
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'UnifrakturCook', cursive;
+    font-size: 2.5rem;
+    color: #D32F2F;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    font-weight: bold;
+    text-align: center;
+    width: 90%;
+    white-space: normal;
+    transition: top 0.3s ease, font-size 0.3s ease;
 }
