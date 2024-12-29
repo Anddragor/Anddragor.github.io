@@ -5,8 +5,15 @@ const gifts = document.querySelectorAll('.gift');
 const centerImage = document.getElementById('center-image');
 const closeBtn = document.getElementById('close-image-btn');
 
+// Массив с путями к изображениям для каждого подарка
+const images = [
+    "collage1.jpg",  // для gift1
+    "collage2.jpg",  // для gift2
+    "collage3.jpg"   // для gift3
+];
+
 // Для каждого подарка добавляем обработчик события клика
-gifts.forEach(gift => {
+gifts.forEach((gift, index) => {
     gift.addEventListener('click', function() {
         console.log('Подарок был кликнут');
         // Добавляем класс для анимации исчезновения
@@ -15,10 +22,10 @@ gifts.forEach(gift => {
         // Ожидаем окончания анимации и затем скрываем элемент
         setTimeout(() => {
             this.style.visibility = 'hidden';  // Скрываем элемент, но оставляем его в потоке
-            // Или, если хотите полностью удалить из DOM, используйте:
-            // this.remove();
 
-            // Показать изображение в центре экрана
+            // Показать изображение в центре экрана в зависимости от индекса
+            const imgSrc = images[index];
+            centerImage.querySelector('img').src = imgSrc;  // Обновляем изображение
             centerImage.style.display = 'block';
             document.body.classList.add('modal-open'); // Блокируем взаимодействие с другими элементами
         }, 300); // Задержка, чтобы дать время анимации (например, 300 мс)
