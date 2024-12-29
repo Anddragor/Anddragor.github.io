@@ -137,3 +137,15 @@ body.modal-open {
 .hidden {
     display: none; /* Класс для скрытия элементов */
 }
+
+/* Слой затемнения */
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный черный цвет */
+    z-index: 9; /* Находится под центральным изображением */
+    display: none; /* Скрыто по умолчанию */
+}

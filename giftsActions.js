@@ -1,6 +1,9 @@
 // Находим все элементы с классом 'gift'
 const gifts = document.querySelectorAll('.gift');
 
+// Находим слой для затемнения
+const overlay = document.getElementById('overlay');
+
 // Находим контейнер для изображения и кнопку закрытия
 const centerImage = document.getElementById('center-image');
 const closeBtn = document.getElementById('close-image-btn');
@@ -27,17 +30,20 @@ gifts.forEach((gift, index) => {
             const imgSrc = images[index];
             centerImage.querySelector('img').src = imgSrc;  // Обновляем изображение
             centerImage.style.display = 'block';
+            overlay.style.display = 'block'; // Показываем затемняющий слой
             document.body.classList.add('modal-open'); // Блокируем взаимодействие с другими элементами
         }, 300); // Задержка, чтобы дать время анимации (например, 300 мс)
     });
 });
 
-// Обработчик для клика по всей странице (кроме самого изображения)
+// Обработчик для клика по всей странице (кроме самого изображения или затемняющего слоя)
 document.addEventListener('click', function(event) {
-    // Проверяем, что клик не был внутри контейнера изображения
-    if (!centerImage.contains(event.target) && event.target !== closeBtn) {
-        // Скрываем изображение
+    // Проверяем, что клик не был внутри контейнера изображения или слоя затемнения
+    if (!centerImage.contains(event.target) && !overlay.contains(event.target) && event.target !== closeBtn) {
+        // Скрываем изображение и затемняющий слой
         centerImage.style.display = 'none';
+        overlay.style.display = 'none';
         document.body.classList.remove('modal-open'); // Восстанавливаем взаимодействие с остальными элементами
     }
 });
+
