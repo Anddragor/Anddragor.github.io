@@ -1,0 +1,119 @@
+body {
+    border: none;
+    background-color: #FFD373;
+    overflow: hidden; /* Скрываем полосу прокрутки */
+}
+
+/* Стили для дерева */
+.tree {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Выравнивание по верхнему краю */
+    background-color: #FFD373;
+    height: 100vh;
+    margin: 0;
+    position: relative; /* Устанавливаем относительное позиционирование для фиксации подарков */
+}
+
+/* Стили для подарков */
+.gift {
+    position: absolute; /* Позиционирование относительно родительского элемента */
+    justify-content: center;
+    bottom: 2%; /* Размещение подарков у нижнего края дерева */
+    transform: translateX(-50%); /* Центрирование по горизонтали */
+    z-index: 1; /* Подарки будут поверх дерева */
+    transition: transform 0.3s ease; /* Плавная анимация для увеличения */
+}
+
+/* Позиции для различных подарков */
+.gift1 {
+    left: 50%; /* Центрируем первый подарок относительно дерева */
+    width: 25%; /* Устанавливаем ширину в процентах от экрана */
+}
+
+.gift2 {
+    left: 66%; /* Немного правее */
+    width: 28%; /* Немного увеличим ширину */
+}
+
+.gift3 {
+    left: 40%; /* Немного левее */
+    width: 30%; /* Увеличим ширину */
+}
+
+/* Анимация увеличения при наведении */
+.gift:hover {
+    transform: translateX(-50%) scale(1.1);
+}
+
+.gift img {
+    width: 100%; /* Уменьшаем ширину изображения до 100% относительно родительского контейнера */
+    height: auto;
+}
+
+
+.trunk {
+    width: 24px;
+    height: 50px;
+    background-color: brown;
+    position: absolute; /* Используем абсолютное позиционирование */
+    top: 440px; /* Устанавливаем положение ствола */
+    left: 38px; /* Центрируем ствол под ветвями */
+}
+
+.snowflake {
+    position: absolute;
+    top: 0;
+    background-color: white;
+    border-radius: 50%;
+    opacity: 0.8;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.6); /* Эффект свечения */
+    transition: top 2s linear, left 2s linear;
+}
+
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.3s ease-out, visibility 0s 0.3s; /* Делаем так, чтобы visibility изменялось после завершения анимации */
+}
+
+/* Стили для отображаемого изображения */
+#center-image {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10; /* Поверх всех остальных элементов */
+    display: flex; /* Используем flexbox */
+    flex-direction: column; /* Вертикальное расположение элементов */
+    align-items: center; /* Центрируем элементы по горизонтали */
+    justify-content: center; /* Центрируем элементы по вертикали */
+    display: none; /* Скрыто по умолчанию */
+}
+
+#center-image img {
+    width: 100%; /* Увеличиваем размер изображения (измените на нужный процент) */
+    height: auto; /* Поддерживаем пропорции изображения */
+}
+
+#close-image-btn {
+    margin-top: 20px; /* Оставляем отступ сверху */
+    padding: 10px 20px;
+    background-color: #FFD373;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+#close-image-btn:hover {
+    background-color: #FFB200;
+}
+
+/* Скрываем элементы, когда показано изображение */
+body.modal-open {
+    pointer-events: none; /* Блокируем взаимодействие с остальными элементами */
+}
+
+.hidden {
+    display: none; /* Класс для скрытия элементов */
+}
