@@ -2,6 +2,7 @@ body {
     border: none;
     background-color: #FFD373;
     overflow: hidden; /* Скрываем полосу прокрутки */
+    justify-content: center;
 }
 
 /* Стили для дерева */
@@ -10,13 +11,13 @@ body {
     justify-content: center;
     align-items: flex-end; /* Выравниваем по низу ёлки */
     position: relative; /* Устанавливаем относительное позиционирование для фиксированных подарков */
+    max-width: 99vh; /* Устанавливаем максимальную ширину на 99% от высоты экрана */
 }
 
 .tree img {
     max-height: 100vh; /* Устанавливаем максимальную высоту на 100% от высоты экрана */
     width: auto; /* Соотношение сторон сохраняется */
 }
-
 
 /* Стили для подарков */
 .gift {
