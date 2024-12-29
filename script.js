@@ -36,5 +36,19 @@ function createSnowflake() {
     }, fallSpeed * 700); // Время удаления после падения
 }
 
-// Создаем снежинки каждые 20 мс
-setInterval(createSnowflake, 20);
+// Функция для вычисления интервала генерации снежинок в зависимости от ширины экрана
+function getSnowflakeInterval() {
+    const screenWidth = window.innerWidth;
+
+    // Если экран меньше 600px, то увеличиваем интервал генерации снежинок
+    if (screenWidth < 600) {
+        return 100; // Меньший интервал на мобильных устройствах
+    } else if (screenWidth < 900) {
+        return 50; // Средний интервал для планшетов
+    } else {
+        return 20; // Стандартный интервал для десктопов
+    }
+}
+
+// Создаем снежинки с динамическим интервалом
+setInterval(createSnowflake, getSnowflakeInterval());
