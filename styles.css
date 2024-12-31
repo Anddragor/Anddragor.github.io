@@ -189,7 +189,7 @@ body.modal-open {
     font-size: 2.5rem;
     color: #D32F2F;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-    z-index: 100;
+    z-index: 8;
     font-weight: bold;
     text-align: center;
     width: 90%;
